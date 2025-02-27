@@ -1,0 +1,90 @@
+@startuml
+
+title BinaryTree Documentation
+
+class BinaryTree
+{
+    - Node* _root
+
+    - string getFineList_(const Node& node)
+    - Node* insert(Node* node, const Item& item)
+    - void deleteTree(Node* node)
+    - Node* search(Node* node, const string& plateNumber)
+    - string printTree(Node* node)
+    - string printRange(Node* node, const string& min, const string& max)
+
+    + BinaryTree()
+    + ~BinaryTree()
+
+    + void insert(const Item& item)
+    + void deleteTree()
+    + string printTree()
+    + string printRange(const string& min, const string& max)
+    + Node* search(const string& plateNumber)
+}
+
+class Item
+{
+    - string _plateNumber
+    - DriverFineType _fineType
+    - float _amount
+
+    + Item()
+    + Item(const string& plateNumber, const DriverFineType& fineType, const float& amount)
+    + ~Item()
+
+    + string getPlateNumber() const
+    + DriverFineType getFineType() const
+    + void setFineType(const DriverFineType& value)
+    + float getAmount() const
+    + void setAmount(const float& value)
+}
+
+class Node
+{
+    - string _plateNumber
+    - List* _fineList
+    - Node* _leftNode
+    - Node* _rightNode
+
+    + Node(const string& plateNumber, const Item& item)
+    + ~Node()
+
+    + string getPlateNumber() const
+    + void setLeftNode(Node* value)
+    + void setRightNode(Node* value)
+}
+
+class List
+{
+    - Item _data;
+    - Node* _head
+
+    + List()
+    + ~List()
+
+    + void add(const Item& item)
+    + void remove(const string& plateNumber)
+    + Node* search(const string& plateNumber)
+    + string printList() const
+}
+
+enum DriverFineType
+{
+    + speeding,
+    + redLightViolation,
+    + illegalParking,
+    + recklessDriving,
+    + DUI,
+    + seatbeltViolation,
+    + cellPhoneUse,
+    + expiredRegistration
+}
+
+BinaryTree "1" --* "*" Node : _root
+Node "1" --o "*" List : _fineList
+Node "*" <-- "*" Node : _left/_right
+List "1" o-- "*" Item
+DriverFineType "1" -- "1" Item : _fineType
+
+@enduml

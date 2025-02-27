@@ -75,4 +75,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="docs.mdpuml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="docMdpuml.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
 </Project>

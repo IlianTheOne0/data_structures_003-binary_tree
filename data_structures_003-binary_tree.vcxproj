@@ -149,6 +149,12 @@
     <ClInclude Include="Presentation\presentation.h" />
     <ClInclude Include="Presentation\View\view.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="docs.mdpuml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="docMdpuml.png" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
